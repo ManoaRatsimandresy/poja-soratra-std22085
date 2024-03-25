@@ -9,6 +9,7 @@ on:
     branches:
       - '*'
   workflow_dispatch:
+
   workflow_call:
 
 jobs:
@@ -30,8 +31,4 @@ jobs:
 
       - run: pip install poja --upgrade
       - run: python -m poja --poja-conf poja.yml --output-dir=.
-      - run: |
-          find . -type f -name "*.sh" -exec chmod +x {} \;
-          find . -type f -name "*.bat" -exec chmod +x {} \;
-          git diff --exit-code
-
+      - run: git diff --exit-code
